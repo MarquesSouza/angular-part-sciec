@@ -12,17 +12,13 @@ import { MapsComponent } from './layout/maps/maps.component';
 import { NotificationsComponent } from './layout/notifications/notifications.component';
 import { UpgradeComponent } from './layout/upgrade/upgrade.component';
 import {LoginComponent} from "./auth/login/login.component";
+import {ValidaCertificadoComponent} from "./valida-certificado/valida-certificado.component";
 
 const routes: Routes =[
-    { path: 'dashboard',      component: HomeComponent },
+    { path: 'home',      component: HomeComponent },
     { path: 'login',           component: LoginComponent },
-    { path: 'table',          component: TablesComponent },
-    { path: 'typography',     component: TypographyComponent },
-    { path: 'icons',          component: IconsComponent },
-    { path: 'maps',           component: MapsComponent },
-    { path: 'notifications',  component: NotificationsComponent },
-    { path: 'upgrade',        component: UpgradeComponent },
-      { path: '',          redirectTo: 'dashboard', pathMatch: 'full' }
+    { path: 'valida',          component: ValidaCertificadoComponent },
+      { path: '',          redirectTo: 'home', pathMatch: 'full' }
 ];
 
 @NgModule({

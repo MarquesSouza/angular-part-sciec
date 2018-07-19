@@ -29,6 +29,8 @@ import {AuthGuard} from "./shared/guards/auth.guard";
 import {TokenInterceptor} from "./shared/interceptors/token.interceptor";
 import {HTTP_INTERCEPTORS} from "@angular/common/http";
 import {RefreshTokenInterceptor} from "./shared/interceptors/refresh-token.interceptor";
+import { ValidaCertificadoComponent } from './valida-certificado/valida-certificado.component';
+import { ParticipanteComponent } from './participante/participante.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -43,7 +45,9 @@ import {RefreshTokenInterceptor} from "./shared/interceptors/refresh-token.inter
     //LoginComponent,
     RegisterComponent,
     RecoverPasswordComponent,
-    LayoutComponent
+    LayoutComponent,
+    ValidaCertificadoComponent,
+    ParticipanteComponent
 
   ],
   imports: [
