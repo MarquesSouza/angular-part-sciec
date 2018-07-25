@@ -13,42 +13,31 @@
 
 
             <ul class="nav navbar-nav navbar-right">
+                <li><a href="home">Listar Eventos</a></li>
+                <li class="divider"></li>
 
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                        <p>
-                            Eventos
-                            <b class="caret"></b>
-                        </p>
-                    </a>
-                    <ul class="dropdown-menu">
-                        <li><a href="#">Listar Eventos</a></li>
-                        <li><a href="#">Minhas Inscrições</a></li>
-                        <li class="divider"></li>
-
-                    </ul>
-                </li>
                 <li >
-                    <a href="#">
+                    <a href="valida">
                         <p>Validar Certificado</p>
                     </a>
                 </li>
                 <li class="dropdown" *ngIf='logado'>
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                         <p>
-                            Usuario
+                            Retorno do usuario
                             <b class="caret"></b>
                         </p>
                     </a>
                     <ul class="dropdown-menu">
+                        <li><a href="#">Minhas Inscrições</a></li>
                         <li><a href="#">Perfil</a></li>
-                        <li><a href="#">Sair</a></li>
+                        <li><a href="#" (click)="logout($event)" )>Sair</a></li>
                         <li class="divider"></li>
 
                     </ul>
                 </li>
                 <li *ngIf='!logado'>
-                    <a href="#">
+                    <a href="login">
                         <p>Login</p>
                     </a>
                 </li>

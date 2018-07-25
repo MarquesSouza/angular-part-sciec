@@ -1,6 +1,8 @@
 import { Component, OnInit, ElementRef } from '@angular/core';
 import { ROUTES } from '../../layout/sidebar/sidebar.component';
 import {Location, LocationStrategy, PathLocationStrategy} from '@angular/common';
+import {AuthService} from "../service/auth.service";
+import {Router} from "@angular/router";
 
 @Component({
     // moduleId: module.id,
@@ -13,17 +15,29 @@ export class NavbarComponent implements OnInit{
     location: Location;
     private toggleButton: any;
     private sidebarVisible: boolean;
-
-    constructor(location: Location,  private element: ElementRef) {
+    public logado:boolean;
+    constructor(location: Location,  private element: ElementRef, private authService: AuthService ,public router: Router) {
       this.location = location;
           this.sidebarVisible = false;
+    }
+    logout(e){
+        e.preventDefault();
+        this.authService.logout();
+        this.router.navigate(['login']);
     }
 
     ngOnInit(){
       this.listTitles = ROUTES.filter(listTitle => listTitle);
       const navbar: HTMLElement = this.element.nativeElement;
       this.toggleButton = navbar.getElementsByClassName('navbar-toggle')[0];
+      if(this.authService.check()==true){
+          this.logado=true;
+      }else{
+          this.logado=false;
+
+      }
     }
+
     sidebarOpen() {
         const toggleButton = this.toggleButton;
         const body = document.getElementsByTagName('body')[0];
@@ -60,4 +74,5 @@ export class NavbarComponent implements OnInit{
       }
       return 'SCIEC';
     }
+
 }
