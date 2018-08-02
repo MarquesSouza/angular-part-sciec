@@ -18,10 +18,10 @@
 
                 <li >
                     <a href="valida">
-                        <p>Validar Certificado</p>
+                        <p>Validar Certificado   </p>
                     </a>
                 </li>
-                <li class="dropdown" *ngIf='logado'>
+                <li class="dropdown" ngIf="">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                         <p>
                             Retorno do usuario
@@ -36,7 +36,7 @@
 
                     </ul>
                 </li>
-                <li *ngIf='!logado'>
+                <li *ngIf="!logado">
                     <a href="login">
                         <p>Login</p>
                     </a>

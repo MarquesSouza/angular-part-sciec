@@ -15,10 +15,12 @@ export class NavbarComponent implements OnInit{
     location: Location;
     private toggleButton: any;
     private sidebarVisible: boolean;
-    public logado:boolean;
+    private logado: boolean;
     constructor(location: Location,  private element: ElementRef, private authService: AuthService ,public router: Router) {
       this.location = location;
           this.sidebarVisible = false;
+
+
     }
     logout(e){
         e.preventDefault();
@@ -30,12 +32,9 @@ export class NavbarComponent implements OnInit{
       this.listTitles = ROUTES.filter(listTitle => listTitle);
       const navbar: HTMLElement = this.element.nativeElement;
       this.toggleButton = navbar.getElementsByClassName('navbar-toggle')[0];
-      if(this.authService.check()==true){
-          this.logado=true;
-      }else{
-          this.logado=false;
-
-      }
+        if(this.authService.check()==true){
+            this.logado=true;
+        }
     }
 
     sidebarOpen() {
