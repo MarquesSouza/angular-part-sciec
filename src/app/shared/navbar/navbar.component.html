@@ -21,11 +21,11 @@
                         <p>Validar Certificado   </p>
                     </a>
                 </li>
-                <li class="dropdown" >
+                <li class="dropdown" *ngIf="authService.check()">
                     <!--ngIf=""-->
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                         <p>
-                            Retorno do usuario
+                            {{authService.getUser().name}}
                             <b class="caret"></b>
                         </p>
                     </a>
@@ -37,7 +37,7 @@
 
                     </ul>
                 </li>
-                <li >
+                <li *ngIf="!authService.check()" >
                     <!--*ngIf="!logado" -->
                     <a href="login">
                         <p>Login</p>
