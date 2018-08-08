@@ -1,4 +1,4 @@
-<nav class="navbar navbar-default">
+<nav class="navbar navbar-expand-lg navbar-light" style="background-color: #006400;">
     <div class="container-fluid">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle" data-toggle="collapse" (click)="sidebarToggle()">
@@ -7,41 +7,49 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#" >{{getTitle()}}</a>
+            <a class="navbar-brand" routerLink="/" >SCIEC</a>
         </div>
         <div class="collapse navbar-collapse">
 
 
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="home">Listar Eventos</a></li>
                 <li class="divider"></li>
 
                 <li >
-                    <a href="valida">
-                        <p>Validar Certificado   </p>
-                    </a>
+                    <!--<a href="valida">-->
+                        <!--<p>Validar Certificado   </p>-->
+                    <!--</a>-->
+                    <button class="btn btn-primary" routerLink="valida">Validar Certificado</button>
                 </li>
                 <li class="dropdown" *ngIf="authService.check()">
                     <!--ngIf=""-->
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                        <p>
-                            {{authService.getUser().name}}
-                            <b class="caret"></b>
-                        </p>
-                    </a>
-                    <ul class="dropdown-menu">
-                        <li><a href="#">Minhas Inscrições</a></li>
-                        <li><a href="#">Perfil</a></li>
-                        <li><a href="#" (click)="logout($event)" >Sair</a></li>
-                        <li class="divider"></li>
+                    <!--<a href="#" class="dropdown-toggle" data-toggle="dropdown">-->
+                        <!--<p>-->
+                            <!--&lt;!&ndash;&lt;!&ndash;{{authService.getUser().name}}&ndash;&gt; Fulano&ndash;&gt;-->
+                            <!--<b class="caret"></b>-->
+                            <!--<button class="caret" class="btn btn-primary">Primary</button>-->
+                        <!--</p>-->
+                    <!--</a>-->
+                    <!--<ul class="dropdown-menu">-->
+                        <!--<li><a href="#">Minhas Inscrições</a></li>-->
+                        <!--<li><a href="#">Perfil</a></li>-->
+                        <!--<li><a href="#" (click)="logout($event)" >Sair</a></li>-->
+                        <!--<li class="divider"></li>-->
 
-                    </ul>
+                    <!--</ul>-->
+                    <div class="dropdown">
+                        <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">{{authService.getUser().name}}
+                            <span class="caret"></span></button>
+                        <ul class="dropdown-menu">
+                            <li><a routerLink="#">Minhas Inscrições</a></li>
+                            <li><a routerLink="#">Meu Perfil</a></li>
+                            <li><a href="#" (click)="logout($event)">Sair</a></li>
+                        </ul>
+                    </div>
                 </li>
                 <li *ngIf="!authService.check()" >
                     <!--*ngIf="!logado" -->
-                    <a href="login">
-                        <p>Login</p>
-                    </a>
+                    <button class="btn btn-primary" routerLink="/login">Entrar<span class="sr-only">(current)</span></button>
                 </li>
                 <li class="separator hidden-lg hidden-md"></li>
             </ul>
@@ -50,3 +58,4 @@
 
     </div>
 </nav>
+
