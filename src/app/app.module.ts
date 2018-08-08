@@ -31,6 +31,8 @@ import {HTTP_INTERCEPTORS} from "@angular/common/http";
 import {RefreshTokenInterceptor} from "./shared/interceptors/refresh-token.interceptor";
 import { ValidaCertificadoComponent } from './valida-certificado/valida-certificado.component';
 import { ParticipanteComponent } from './participante/participante.component';
+import {DetalhesEventoComponent} from './home/detalhes-evento/detalhes-evento.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -47,8 +49,8 @@ import { ParticipanteComponent } from './participante/participante.component';
     RecoverPasswordComponent,
     LayoutComponent,
     ValidaCertificadoComponent,
-    ParticipanteComponent
-
+    ParticipanteComponent,
+    DetalhesEventoComponent
   ],
   imports: [
     BrowserModule,
