@@ -8,23 +8,25 @@
             </ol>
         </nav>
         <div class="tab-content">
-            <div class="row">
-                <div class="col-md-3">
-                    <div class="card" style="width:auto" align="center">
-                        <img class="card-img-top" src="assets/Imagens/ifpe.png" width="30" height="200" alt="logo-evento">
-                        <div class="card-body">
-                            <h5 class="card-title">Evento 1</h5>
-                            <button type="button" routerLink="/detalhes" class="btn btn-primary">Ver Evento</button>
+
+            <div class="col-md-3">
+                <div class="row">
+                    <div class="col-md-4" *ngFor="let event of events.data">
+                        <div class="card" style="height: 15em">
+                            <div class="h4 text-center">{{event.nome}}</div>
+                            <a href="detalhes-evento" class="waves-effect waves-light btn green col s12" *ngIf="events.data"><i
+                                    class="material-icons left">event</i>Ver
+                                Evento</a>
+                            <div class="card-content">
+                                <p>{{event.descricao}}</p>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-3">
-                    <div class="card" style="width:auto" align="center">
-                        <img class="card-img-top" src="assets/Imagens/ifpe.png" width="30" height="200" alt="logo-evento">
-                        <div class="card-body">
-                            <h5 class="card-title">Evento Numero 2</h5>
-                            <button type="button" routerLink="/detalhes" class="btn btn-primary">Ver Evento</button>
-                        </div>
+                <div class="footer">
+                    <hr>
+                    <div class="stats">
+                        <i class="fa fa-history"></i> Atualizado há 3 minutos atrás
                     </div>
                 </div>
             </div>
@@ -33,16 +35,3 @@
 </div>
 
 
-<!--<div class="col-md-4" *ngFor="let event of events.data">-->
-    <!--<div class="card" style="width: 18em">-->
-        <!--<div class="h4 text-center">{{event.nome}}</div>-->
-        <!--<a href="detalhes-evento" class="waves-effect waves-light btn green col s12" *ngIf="events.data"><i-->
-                <!--class="material-icons left">event</i>Ver-->
-            <!--Evento</a>-->
-        <!--<div class="card-content">-->
-            <!--<p>{{event.descricao}}</p>-->
-            <!--&lt;!&ndash;<a class="btn-floating halfway-fab waves-effect waves-light red"><i-->
-                    <!--class="material-icons">delete</i></a>&ndash;&gt;-->
-        <!--</div>-->
-    <!--</div>-->
-<!--</div>-->

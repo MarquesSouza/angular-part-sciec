@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { LocationStrategy, PlatformLocation, Location } from '@angular/common';
 import {Http, Response} from "@angular/http";
 import {getResponseURL} from "@angular/http/src/http_utils";
+import {environment} from '../../environments/environment';
 
 @Component({
   selector: 'app-home',
@@ -15,7 +16,7 @@ export class HomeComponent implements OnInit {
     events = [];
     fetchData = function() {
 
-        this.http.get('http://sciec.test/admin/event/index').subscribe(
+        this.http.get(`${environment.web_url}/user/event/index`).subscribe(
             (res: Response) => {
                 this.events = res.json();
                 console.log(this.events.data);

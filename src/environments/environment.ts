@@ -5,5 +5,6 @@
 
 export const environment = {
     production: false,
-    api_url: 'http://localhost/sciec-server/public/api'
+    api_url: 'http://localhost/sciec-server/public/api',
+    web_url: 'http://localhost/sciec-server/public',
 };
