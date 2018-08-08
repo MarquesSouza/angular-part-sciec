@@ -18,9 +18,8 @@ export class AuthService {
         return this.http.post<any>(`${environment.api_url}/auth/login`, credentials)
             .do(data => {
                 localStorage.setItem('token', data.token);
-               // localStorage.setItem('user', btoa(JSON.stringify(data.user)));
-               localStorage.setItem('user', JSON.stringify(data.user));
-            });
+                localStorage.setItem('user', btoa(JSON.stringify(data.user)));
+               });
     }
 
     logout(): void {
