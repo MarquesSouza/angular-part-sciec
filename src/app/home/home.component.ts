@@ -3,6 +3,7 @@ import { LocationStrategy, PlatformLocation, Location } from '@angular/common';
 import {Http, Response} from "@angular/http";
 import {getResponseURL} from "@angular/http/src/http_utils";
 import {environment} from '../../environments/environment';
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-home',
@@ -25,7 +26,6 @@ export class HomeComponent implements OnInit {
         );
 
     };
-
 
 
     ngOnInit() {
