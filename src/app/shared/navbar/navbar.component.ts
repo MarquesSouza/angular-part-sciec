@@ -3,6 +3,7 @@ import { ROUTES } from '../../layout/sidebar/sidebar.component';
 import {Location, LocationStrategy, PathLocationStrategy} from '@angular/common';
 import {AuthService} from '../service/auth.service';
 import {Router} from '@angular/router';
+import {SidebarComponent} from '../../layout/sidebar/sidebar.component';
 
 @Component({
     // moduleId: module.id,
@@ -52,8 +53,8 @@ export class NavbarComponent implements OnInit{
         body.classList.remove('nav-open');
     };
     sidebarToggle() {
-        // const toggleButton = this.toggleButton;
-        // const body = document.getElementsByTagName('body')[0];
+         const toggleButton = this.toggleButton;
+         const body = document.getElementsByTagName('body')[0];
         if (this.sidebarVisible === false) {
             this.sidebarOpen();
         } else {

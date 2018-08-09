@@ -33,6 +33,7 @@ import { ValidaCertificadoComponent } from './valida-certificado/valida-certific
 import { ParticipanteComponent } from './participante/participante.component';
 import {DetalhesEventoComponent} from './home/detalhes-evento/detalhes-evento.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -69,6 +70,7 @@ import {DetalhesEventoComponent} from './home/detalhes-evento/detalhes-evento.co
       AuthGuard,
       {provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true },
       /*{provide: HTTP_INTERCEPTORS, useClass: RefreshTokenInterceptor, multi: true }*/
+
   ],
   bootstrap: [AppComponent]
 })
