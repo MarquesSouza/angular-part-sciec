@@ -13,7 +13,6 @@ import {Router} from "@angular/router";
 export class HomeComponent implements OnInit {
     constructor(private http: Http) { }
     eventObj: object = {};
-
     events = [];
     fetchData = function() {
 
@@ -27,10 +26,16 @@ export class HomeComponent implements OnInit {
 
     };
 
+    public redirecionar(values) {
+        var url = '/detalhes-evento/' + values;
+        console.log(values)
+        window.location.href = url;
+    }
 
     ngOnInit() {
         this.fetchData();
 
     }
+
 
 }

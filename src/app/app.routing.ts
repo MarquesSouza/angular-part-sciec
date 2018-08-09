@@ -13,7 +13,7 @@ const routes: Routes =[
     { path: 'home',      component: HomeComponent },
     { path: 'login',           component: LoginComponent },
     { path: 'valida',          component: ValidaCertificadoComponent },
-    {path: 'detalhes-evento',        component: DetalhesEventoComponent},
+    {path: 'detalhes-evento/:id',        component: DetalhesEventoComponent},
       { path: '',          redirectTo: 'home', pathMatch: 'full' },
 
 ];

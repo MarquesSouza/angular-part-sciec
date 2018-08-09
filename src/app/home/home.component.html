@@ -27,7 +27,15 @@
                                 <div class="card-body">
                                     <h5 class="card-title"><b>{{event.nome}}</b></h5>
                                     <!--<button onclick="location.href = '/detalhes-evento/';" class="btn btn-primary">Ver Evento</button>-->
-                                    <button onclick="location.href ='/detalhes-evento/'+event.nome;" class="btn btn-primary">Ver Evento</button>
+                                    <!--<button onclick="location.href ='/detalhes-evento/'" class="btn btn-primary">Ver Evento</button>-->
+                                    <!--<button ng-click="RedirectToURL(/detalhes-evento)" class="btn btn-primary">Ver Evento</button>-->
+                                    <!--<button go-click="/detalhes-evento">Click!</button>-->
+                                    <!--<button ng-click="$location.path('/detalhes-evento')">New Page</button>-->
+                                    <!--<a [routerLink]="['/product-details', event.id]"></a>-->
+                                    <!--<button [routerLink]="['/valida', event.id]" class="btn btn-primary">Ver Evento</button>-->
+                                    <!--<button class="btn btn-success" ng-click="go(/valida)">Cadastra-se</button>-->
+                                    <!--<button type="button" href="location.href='/valida'">Title on button</button>-->
+                                    <button class="btn btn-primary" (click)="redirecionar(event.id)">Ver Evento</button>
                                 </div>
                             </div>
                         </div>
