@@ -10,14 +10,19 @@ import {ValidaCertificadoComponent} from './valida-certificado/valida-certificad
 import {DetalhesEventoComponent} from './home/detalhes-evento/detalhes-evento.component';
 import {MinhasInscricoesComponent} from './participante/minhas-inscricoes/minhas-inscricoes.component';
 import {PerfilComponent} from './participante/perfil/perfil.component';
+import {RecoverPasswordComponent} from './auth/recover-password/recover-password.component';
+import {RegisterComponent} from './auth/register/register.component';
+import {AuthGuard} from './shared/guards/auth.guard';
 
 const routes: Routes =[
     { path: 'home',      component: HomeComponent },
     { path: 'login',           component: LoginComponent },
     { path: 'valida',          component: ValidaCertificadoComponent },
-    { path: 'perfil',          component: PerfilComponent },
-    { path: 'inscricoes',          component: MinhasInscricoesComponent },
-    {path: 'detalhes-evento/:id',        component: DetalhesEventoComponent},
+    { path: 'perfil',          component: PerfilComponent  , canActivate: [AuthGuard] },
+    { path: 'inscricoes',          component: MinhasInscricoesComponent,  canActivate: [AuthGuard] },
+    { path: 'register',          component: RegisterComponent },
+    { path: 'recover',          component: RecoverPasswordComponent },
+    {path: 'detalhes-evento',        component: DetalhesEventoComponent},
       { path: '',          redirectTo: 'home', pathMatch: 'full' },
 
 ];
