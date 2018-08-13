@@ -2,7 +2,7 @@
   <div class="row justify-content-md-center">
     <div class="card text-dark col-md-6 border border-success">
       <div class="card-body">
-        <form>
+        <form id = "formNewUser" name = "formNewUser" #productData = "ngForm" (ngSubmit) = "addUser(productData.value)">
           <h1 class="h3 mb-3 font-weight-normal">Cadastre-se para se inscrever nos eventos</h1>
           <div class="form-row">
             <div class="form-group col-md-12">
@@ -15,8 +15,8 @@
               <input type="text" class="form-control" id="inputCPF" placeholder="123.456.789-12">
             </div>
             <div class="form-group col-md-12">
-              <label for="inputEmail4">Email</label>
-              <input type="email" class="form-control" id="inputEmail4" placeholder="seuemail@gmail.com">
+              <label for="inputEmail">Email</label>
+              <input type="email" class="form-control" id="inputEmail" placeholder="seuemail@gmail.com">
             </div>
             <div class="form-group col-md-12">
               <label for="inputCelular">Celular</label>
@@ -27,8 +27,8 @@
               <input type="password" class="form-control" id="inputPassword" placeholder="Insira sua senha">
             </div>
             <div class="form-group col-md-6">
-              <label for="inputPassword4">Confirmação de Senha</label>
-              <input type="password" class="form-control" id="inputPassword4" placeholder="Confirme sua senha">
+              <label for="inputPassword">Confirmação de Senha</label>
+              <input type="password" class="form-control" id="inputPassword" placeholder="Confirme sua senha">
             </div>
           </div>
           <div class="form-group">
