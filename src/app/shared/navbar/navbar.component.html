@@ -25,9 +25,12 @@
                 <li class="dropdown" *ngIf="authService.check()">
 
                     <div class="dropdown">
+
                         <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">{{authService.getUser().name}}
                             <span class="caret"></span></button>
+
                         <ul class="dropdown-menu">
+
                             <li><a routerLink="#">Minhas Inscrições</a></li>
                             <li><a routerLink="#">Meu Perfil</a></li>
                             <li><a href="#" (click)="logout($event)">Sair</a></li>

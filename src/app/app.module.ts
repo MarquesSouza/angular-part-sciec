@@ -32,6 +32,8 @@ import {RefreshTokenInterceptor} from "./shared/interceptors/refresh-token.inter
 import { ValidaCertificadoComponent } from './valida-certificado/valida-certificado.component';
 import { ParticipanteComponent } from './participante/participante.component';
 import {DetalhesEventoComponent} from './home/detalhes-evento/detalhes-evento.component';
+import {PerfilComponent} from './participante/perfil/perfil.component';
+import {MinhasInscricoesComponent} from './participante/minhas-inscricoes/minhas-inscricoes.component';
 
 
 @NgModule({
@@ -51,7 +53,9 @@ import {DetalhesEventoComponent} from './home/detalhes-evento/detalhes-evento.co
     LayoutComponent,
     ValidaCertificadoComponent,
     ParticipanteComponent,
-    DetalhesEventoComponent
+    DetalhesEventoComponent,
+      PerfilComponent,
+      MinhasInscricoesComponent,
   ],
   imports: [
     BrowserModule,

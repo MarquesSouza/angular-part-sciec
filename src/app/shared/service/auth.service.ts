@@ -4,7 +4,7 @@ import {environment} from "../../../environments/environment";
 import { Router } from '@angular/router';
 import {Observable} from "rxjs";
 import  "rxjs/add/operator/do";
-import {user} from "../interface/user";
+import {User} from "../interface/user";
 @Injectable()
 export class AuthService {
 
@@ -30,19 +30,20 @@ export class AuthService {
         });
     }
 
-     getUser(): user {
+    getUser(): User {
         return localStorage.getItem('user') ? JSON.parse(atob(localStorage.getItem('user'))) : null;
-     }
-    
-     setUser(): Promise<boolean> {
-         return this.http.get<any>(`${environment.api_url}/auth/me`).toPromise()
-             .then(data => {
-                 if (data.user) {
-                     localStorage.setItem('user', btoa(JSON.stringify(data.user)));
-                     return true;
-                 }
-                 return false;
-             });
-     }
+    }
+
+    setUser(): Promise<boolean> {
+        return this.http.get<any>(`${environment.api_url}/auth/me`).toPromise()
+            .then(data => {
+                if (data.user) {
+                    localStorage.setItem('user', btoa(JSON.stringify(data.user)));
+                    return true;
+                }
+                return false;
+            });
+    }
+
 
 }
