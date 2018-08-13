@@ -28,7 +28,7 @@ export class HomeComponent implements OnInit {
     };
 
     public redirecionar(values) {
-        var url = '/detalhes-evento/' + values;
+        var url = '/detalhes-evento/';
         console.log(values)
         window.location.href = url;
     }
