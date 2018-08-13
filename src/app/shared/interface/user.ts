@@ -1,4 +1,4 @@
-export interface user {
+export interface User {
     id: number;
     name: string;
     email: string;
@@ -8,4 +8,4 @@ export interface user {
     remember_token: string;
     created_at: string;
     updated_at: string;
-}
+};
