@@ -6,29 +6,29 @@
           <h1 class="h3 mb-3 font-weight-normal">Cadastre-se para se inscrever nos eventos</h1>
           <div class="form-row">
             <div class="form-group col-md-12">
-              <label for="inputName">Nome Completo</label>
-              <input type="text" class="form-control" id="inputName"
+              <label for="name">Nome Completo</label>
+              <input type="text" class="form-control" id="name" name="name" ngModel
                      placeholder="Esses dados vão ser impressos em seu certificado!">
             </div>
             <div class="form-group col-md-12">
-              <label for="inputCPF">CPF</label>
-              <input type="text" class="form-control" id="inputCPF" placeholder="123.456.789-12">
+              <label for="cpf">CPF</label>
+              <input type="text" class="form-control" id="cpf" name="cpf" placeholder="123.456.789-12" ngModel>
             </div>
             <div class="form-group col-md-12">
-              <label for="inputEmail">Email</label>
-              <input type="email" class="form-control" id="inputEmail" placeholder="seuemail@gmail.com">
+              <label for="email">Email</label>
+              <input type="email" class="form-control" id="email" name="email" placeholder="seuemail@gmail.com" ngModel>
             </div>
             <div class="form-group col-md-12">
-              <label for="inputCelular">Celular</label>
-              <input type="text" class="form-control" id="inputCelular"placeholder="(63)99999-9999">
+              <label for="celular">Celular</label>
+              <input type="text" class="form-control" id="celular" name="celular" placeholder="(63)99999-9999" ngModel>
             </div>
             <div class="form-group col-md-6">
-              <label for="inputPassword">Senha</label>
-              <input type="password" class="form-control" id="inputPassword" placeholder="Insira sua senha">
+              <label for="password">Senha</label>
+              <input type="password" class="form-control" id="password" name="password" placeholder="Insira sua senha" ngModel>
             </div>
             <div class="form-group col-md-6">
-              <label for="inputPassword">Confirmação de Senha</label>
-              <input type="password" class="form-control" id="inputPassword" placeholder="Confirme sua senha">
+              <label for="password">Confirmação de Senha</label>
+              <input type="password" class="form-control" id="password" name="password" placeholder="Confirme sua senha " ngModel>
             </div>
           </div>
           <div class="form-group">
@@ -39,8 +39,9 @@
               </label>
             </div>
           </div>
-          <button type="submit" class="btn btn-danger" routerLink="/">Voltar</button>
-          <button type="submit" class="btn btn-primary" routerLink="#">Enviar Dados!</button>
+          <button type="submit" class="btn btn-danger" >Voltar</button>
+          <button type="submit" class="btn btn-primary" >Enviar Dados!</button>
+
         </form>
       </div>
     </div>

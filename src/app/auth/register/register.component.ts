@@ -11,13 +11,14 @@ export class RegisterComponent implements OnInit {
   constructor( private http: Http) { }
   addUser= function(event){
     this.userObj = {
-        'name': event.inputName,
-        'cpf': event.imputCPF,
-        'email': event.imputEmail,
-        'celular': event.imputCelular,
-        'password': event.imputPassword,
+        'name': event.name,
+        'cpf': event.cpf,
+        'email': event.email,
+        'celular': event.celular,
+        'password': event.password,
+        'tipousuario': '1',
     };
-    this.http.post(`${environment.web_url}/register`, this.userObj).subscribe((res: Response) => {
+    this.http.post(`${environment.web_url}/user/auth/register`, this.userObj).subscribe((res: Response) => {
       console.log(res);
       this.route.navigate('login');
     });
