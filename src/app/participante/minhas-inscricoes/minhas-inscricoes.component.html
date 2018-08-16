@@ -1,35 +1,63 @@
 
-<table class="table">
+<!--<table class="table">-->
+
+  <!--<thead>-->
+  <!--<tr>-->
+    <!--<th scope="col">id</th>-->
+    <!--<th scope="col">Nome</th>-->
+    <!--<th scope="col">Descricao</th>-->
+    <!--<th scope="col">Local</th>-->
+    <!--<th scope="col">Data inicio </th>-->
+    <!--<th scope="col">Conclusao</th>-->
+    <!--<th scope="col">Situacao</th>-->
+    <!--<th scope="col">Status</th>-->
+    <!--<th scope="col">Descricao</th>-->
+    <!--<th scope="col">Coordenador</th>-->
+
+  <!--</tr>-->
+<!--</thead>-->
+  <!--<tbody>-->
+  <!--<tr *ngFor="let inscricao of inscricoes">-->
+    <!--<td>{{inscricao.id}}</td>-->
+    <!--<td>{{inscricao.nome }}</td>-->
+    <!--<td>{{inscricao.descricao }}</td>-->
+    <!--<td>{{inscricao.local }}</td>-->
+    <!--<td>{{inscricao.data_inicio }}</td>-->
+    <!--<td>{{inscricao.conclusao}}</td>-->
+    <!--<td>{{inscricao.situacao}}</td>-->
+    <!--<td>{{inscricao.status}}</td>-->
+    <!--<td>{{inscricao.descricao}}</td>-->
+    <!--<td>{{inscricao.coordenador}}</td>-->
+  <!--</tr>-->
+  <!--</tbody>-->
+<!--</table>-->
+
+<div class="container-fluid" xmlns="">
+  <div class="content">
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item active" aria-current="page">
+          <h3 class="text-xl-center">Minhas Inscrições</h3>
+        </li>
+      </ol>
+    </nav>
+
+    <div class="panel panel-default" *ngFor="let inscricao of inscricoes">
+      <div class="panel-heading">
+        <h3 class="panel-title">{{inscricao.nome }}</h3>
+      </div>
+      <div class="panel-body">
+        <div class="row">
+          <div class="col-xs-12 col-sm-12 col-md-12">
+            {{inscricao.descricao }}
+            <br><small>Local: {{inscricao.local }}</small>
+            <br><small>De {{inscricao.data_inicio | date: 'dd/MM/yyyy'}} à {{inscricao.data_conclusao | date: 'dd/MM/yyyy'}}</small>
+            <div style="float: right" ><button  class="btn btn-primary" (click)="clique(inscricao.id)">certificado</button></div>
+          </div>
+        </div>
+      </div>
+    </div>
 
 
-  <thead>
-  <tr>
-    <th scope="col">id</th>
-    <th scope="col">Nome</th>
-    <th scope="col">Descricao</th>
-    <th scope="col">Local</th>
-    <th scope="col">Data inicio </th>
-    <th scope="col">Conclusao</th>
-    <th scope="col">Situacao</th>
-    <th scope="col">Status</th>
-    <th scope="col">Descricao</th>
-    <th scope="col">Coordenador</th>
-
-  </tr>
-</thead>
-  <tbody>
-  <tr *ngFor="let inscricao of inscricoes">
-    <td>{{inscricao.id}}</td>
-    <td>{{inscricao.nome }}</td>
-    <td>{{inscricao.descricao }}</td>
-    <td>{{inscricao.local }}</td>
-    <td>{{inscricao.data_inicio }}</td>
-    <td>{{inscricao.conclusao}}</td>
-    <td>{{inscricao.situacao}}</td>
-    <td>{{inscricao.status}}</td>
-    <td>{{inscricao.descricao}}</td>
-    <td>{{inscricao.coordenador}}</td>
-  </tr>
-  </tbody>
-</table>
-
+  </div>
+</div>
