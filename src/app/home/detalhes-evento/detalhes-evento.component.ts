@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {Http, Response, Headers} from '@angular/http';
 import objectContaining = jasmine.objectContaining;
+import {environment} from '../../../environments/environment';
 @Component({
   selector: 'app-detalhes-evento',
   templateUrl: './detalhes-evento.component.html',
@@ -18,7 +19,7 @@ export class DetalhesEventoComponent implements OnInit {
     };
 
     fetchData = function() {
-        this.http.get(`http://localhost/sciec-server/public/user/event/activity/index?event_id=1`).subscribe(
+        this.http.get(`${environment.web_url}/user/event/activity/index?event_id=1`).subscribe(
             (res: Response) => {
                 this.dtevents = res.json();
                //   console.log( res.json());
@@ -29,22 +30,22 @@ export class DetalhesEventoComponent implements OnInit {
 
     };
 
-    addNewDtEvent = function(dtevent) {
-        this.dteventObj = {
-            'nome': dtevent.nome,
-            'descricao': dtevent.descricao,
-            'local': dtevent.local,
-            'data_inicio': dtevent.data_inicio,
-            'data_conclusao': dtevent.data_conclusao,
-            'situacao': dtevent.situacao,
-            'status': dtevent.status,
-            'coordenador': dtevent.coordenador,
-        };
-        this.http.post('http://sciec.test/admin/event/store', this.dteventObj).subscribe((res: Response) => {
-            console.log(res);
-            this.fetchData();
-        });
-    };
+    // addNewDtEvent = function(dtevent) {
+    //     this.dteventObj = {
+    //         'nome': dtevent.nome,
+    //         'descricao': dtevent.descricao,
+    //         'local': dtevent.local,
+    //         'data_inicio': dtevent.data_inicio,
+    //         'data_conclusao': dtevent.data_conclusao,
+    //         'situacao': dtevent.situacao,
+    //         'status': dtevent.status,
+    //         'coordenador': dtevent.coordenador,
+    //     };
+    //     this.http.post('http://sciec.test/admin/event/store', this.dteventObj).subscribe((res: Response) => {
+    //         console.log(res);
+    //         this.fetchData();
+    //     });
+    // };
 
     ngOnInit() {
         this.fetchData();
