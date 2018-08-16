@@ -19,8 +19,8 @@ export class MinhasInscricoesComponent implements OnInit {
         this.http.get(`${environment.web_url}/user/event/inscricao?event_id=1&user_id=1`).subscribe(
             (res: Response) => {
                 this.inscricoes = res.json();
-                //   console.log( res.json());
-                console.log(this.inscricoes);
+                   console.log( this.inscricoes);
+               this.inscricoes;
             }
 
         );
