@@ -26,7 +26,7 @@ export class AuthService {
         this.http.get(`${environment.api_url}/auth/logout`).subscribe(resp => {
             console.log(resp);
             localStorage.clear();
-            this.router.navigate(['login']);
+            this.router.navigate(['home']);
         });
     }
 
