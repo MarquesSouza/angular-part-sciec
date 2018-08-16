@@ -9,7 +9,7 @@ import {User} from "../interface/user";
 export class AuthService {
 
     constructor(private http: HttpClient, private router: Router) { }
-
+    user;
     check(): boolean {
         return localStorage.getItem('user') ? true : false;
     }
@@ -19,18 +19,21 @@ export class AuthService {
             .do(data => {
                 localStorage.setItem('token', data.token);
                 localStorage.setItem('user', btoa(JSON.stringify(data.user)));
-               });
+                console.log(data.user);
+
+            });
     }
 
     logout(): void {
         this.http.get(`${environment.api_url}/auth/logout`).subscribe(resp => {
-            console.log(resp);
+            //console.log(resp);
             localStorage.clear();
             this.router.navigate(['home']);
         });
     }
 
     getUser(): User {
+
         return localStorage.getItem('user') ? JSON.parse(atob(localStorage.getItem('user'))) : null;
     }
 
