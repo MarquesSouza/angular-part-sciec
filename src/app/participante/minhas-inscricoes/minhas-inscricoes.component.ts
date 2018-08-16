@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {Http, Response} from '@angular/http';
 import {environment} from '../../../environments/environment';
+import {Local} from 'protractor/built/driverProviders';
 
 
 @Component({
@@ -46,6 +47,10 @@ export class MinhasInscricoesComponent implements OnInit {
 
     ngOnInit() {
         this.fetchData();
+    }
+    public clique(id){
+        localStorage.setItem('idevent', id);
+        window.location.href = '/certificado';
     }
 
 }

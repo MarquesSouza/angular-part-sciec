@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import * as jsPDF from 'jspdf';
 import {Http, Response} from '@angular/http';
 import {environment} from '../../../environments/environment';
+import {AuthService} from '../../shared/service/auth.service';
+
 @Component({
   selector: 'app-certificado',
   templateUrl: './certificado.component.html',
@@ -9,13 +11,16 @@ import {environment} from '../../../environments/environment';
 })
 export class CertificadoComponent implements OnInit {
 
-  constructor(private http: Http) { }
+  constructor(private http: Http,  private authService: AuthService) { }
     certificadoObj: object = {};
     certificado ;
 
 
     fetchData = function() {
-        this.http.get(`${environment.web_url}/user/event/certificate?event_id=1&user_id=1`).subscribe(
+      var event = localStorage.getItem('idevent');
+        localStorage.removeItem('idevent');
+        var user = this.authService.getUser().id;
+        this.http.get(`${environment.web_url}/user/event/certificate?event_id=`+event+`&user_id=`+user).subscribe(
             (res: Response) => {
                 this.certificado = res.json();
               //  console.log( this.certificado);
