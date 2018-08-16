@@ -15,9 +15,9 @@ export class DetalhesEventoComponent implements OnInit {
     fetchData = function() {
         this.http.get(`http://localhost/sciec-server/public/user/event/activity/index?event_id=1`).subscribe(
             (res: Response) => {
-               // this.dtevents =
+               // this.dtevents = res.json();
                   console.log(  res.json());
-                console.log(this.dtevents.data);
+              //  console.log(this.dtevents.data);
             }
 
         );
