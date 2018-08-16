@@ -18,7 +18,7 @@ export class CertificadoComponent implements OnInit {
         this.http.get(`${environment.web_url}/user/event/certificate?event_id=1&user_id=1`).subscribe(
             (res: Response) => {
                 this.certificado = res.json();
-                console.log( this.certificado);
+              //  console.log( this.certificado);
                 this.certificado;
             }
 

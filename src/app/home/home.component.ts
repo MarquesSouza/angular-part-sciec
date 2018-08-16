@@ -20,7 +20,7 @@ export class HomeComponent implements OnInit {
         this.http.get(`${environment.web_url}/user/event/index`).subscribe(
             (res: Response) => {
                 this.events = res.json();
-                console.log(this.events.data);
+                this.events.data;
             }
 
         );
@@ -29,7 +29,7 @@ export class HomeComponent implements OnInit {
 
     public redirecionar(values) {
         var url = '/detalhes-evento/';
-        console.log(values)
+        //console.log(values)
         window.location.href = url;
     }
 
