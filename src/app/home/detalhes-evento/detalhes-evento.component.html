@@ -15,16 +15,18 @@
         </tr>
         </thead>
         <tbody>
-        <tr *ngFor="let dtevent of dtevents.data">
-          <td>{{dtevent.nome}}</td>
-          <td>{{dtevent.descricao}}</td>
-          <td>{{dtevent.local}}</td>
-          <td>{{dtevent.data_inicio}}</td>
-          <td>{{dtevent.data_conclusao}}</td>
-          <td>{{dtevent.situacao}}</td>
-          <td>{{dtevent.status}}</td>
-          <td>{{dtevent.coordenador}}</td>
-        </tr>
+
+          <td>{{dtevents.evento.nome}}</td>
+          <td>{{dtevents.evento.descricao}}</td>
+          <td>{{dtevents.evento.local}}</td>
+          <td>{{dtevents.evento.data_inicio}}</td>
+          <td>{{dtevents.evento.data_conclusao}}</td>
+          <td>{{dtevents.evento.situacao}}</td>
+          <td>{{dtevents.evento.status}}</td>
+          <td>{{dtevents.evento.coordenador}}</td>
+
+          <!--<tr *ngFor="let dtevent of dtevents.evento">-->
+          <!--</tr>-->
         </tbody>
       </table>
     </div>

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {Http, Response, Headers} from '@angular/http';
+import objectContaining = jasmine.objectContaining;
 @Component({
   selector: 'app-detalhes-evento',
   templateUrl: './detalhes-evento.component.html',
@@ -10,14 +11,18 @@ export class DetalhesEventoComponent implements OnInit {
 
     constructor(private http: Http) { }
     dteventObj: object = {};
+    dtevents : object = {
+        atividade: Object(),
+        qtd: Object(),
+        evento: Object (),
+    };
 
-    dtevents;
     fetchData = function() {
         this.http.get(`http://localhost/sciec-server/public/user/event/activity/index?event_id=1`).subscribe(
             (res: Response) => {
-               // this.dtevents = res.json();
-                  console.log(  res.json());
-              //  console.log(this.dtevents.data);
+                this.dtevents = res.json();
+               //   console.log( res.json());
+               this.dtevents;
             }
 
         );
