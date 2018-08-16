@@ -34,6 +34,7 @@ import { ParticipanteComponent } from './participante/participante.component';
 import {DetalhesEventoComponent} from './home/detalhes-evento/detalhes-evento.component';
 import {PerfilComponent} from './participante/perfil/perfil.component';
 import {MinhasInscricoesComponent} from './participante/minhas-inscricoes/minhas-inscricoes.component';
+import {CertificadoComponent} from './participante/certificado/certificado.component';
 
 
 @NgModule({
@@ -56,6 +57,7 @@ import {MinhasInscricoesComponent} from './participante/minhas-inscricoes/minhas
     DetalhesEventoComponent,
       PerfilComponent,
       MinhasInscricoesComponent,
+      CertificadoComponent,
   ],
   imports: [
     BrowserModule,
