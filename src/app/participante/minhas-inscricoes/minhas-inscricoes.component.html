@@ -1,9 +1,35 @@
-<p>
 
+<table class="table">
+
+
+  <thead>
+  <tr>
+    <th scope="col">id</th>
+    <th scope="col">Nome</th>
+    <th scope="col">Descricao</th>
+    <th scope="col">Local</th>
+    <th scope="col">Data inicio </th>
+    <th scope="col">Conclusao</th>
+    <th scope="col">Situacao</th>
+    <th scope="col">Status</th>
+    <th scope="col">Descricao</th>
+    <th scope="col">Coordenador</th>
+
+  </tr>
+</thead>
   <tbody>
-  <tr *ngFor="let inscricao of inscricoes.retorno">
-    <td>{{inscricao['id']}}</td>
+  <tr *ngFor="let inscricao of inscricoes">
+    <td>{{inscricao.id}}</td>
+    <td>{{inscricao.nome }}</td>
+    <td>{{inscricao.descricao }}</td>
+    <td>{{inscricao.local }}</td>
+    <td>{{inscricao.data_inicio }}</td>
+    <td>{{inscricao.conclusao}}</td>
+    <td>{{inscricao.situacao}}</td>
+    <td>{{inscricao.status}}</td>
+    <td>{{inscricao.descricao}}</td>
+    <td>{{inscricao.coordenador}}</td>
   </tr>
   </tbody>
+</table>
 
-</p>

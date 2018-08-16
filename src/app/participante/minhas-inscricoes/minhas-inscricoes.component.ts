@@ -12,8 +12,8 @@ export class MinhasInscricoesComponent implements OnInit {
 
   constructor(private http: Http) { }
     inscricoesObj: object = {};
-    inscricoes : object = {
-        retorno: Array()};
+    inscricoes ;
+
 
     fetchData = function() {
         this.http.get(`${environment.web_url}/user/event/inscricao?event_id=1&user_id=1`).subscribe(
