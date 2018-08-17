@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {Http, Response, Headers} from '@angular/http';
 import objectContaining = jasmine.objectContaining;
 import {environment} from '../../../environments/environment';
+
 @Component({
   selector: 'app-detalhes-evento',
   templateUrl: './detalhes-evento.component.html',
@@ -10,7 +11,7 @@ import {environment} from '../../../environments/environment';
 export class DetalhesEventoComponent implements OnInit {
   //  private dataList: Data[] = [];
 
-    constructor(private http: Http) { }
+    constructor(private http: Http,) { }
     dteventObj: object = {};
     dtevents : object = {
         atividade: Object(),
@@ -19,7 +20,9 @@ export class DetalhesEventoComponent implements OnInit {
     };
 
     fetchData = function() {
-        this.http.get(`${environment.web_url}/user/event/activity/index?event_id=1`).subscribe(
+        var event = localStorage.getItem('event');
+        localStorage.removeItem('event');
+        this.http.get(`${environment.web_url}/user/event/activity/index?event_id=`+event).subscribe(
             (res: Response) => {
                 this.dtevents = res.json();
                //   console.log( res.json());
