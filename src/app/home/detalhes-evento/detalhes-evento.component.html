@@ -61,7 +61,7 @@
       </div>
       <div >
         <form id = "formNewUser" name = "formNewUser" #productData = "ngForm" (ngSubmit) = "addNewDtEvent(productData.value)">
-          <input type="hidden" name="_token" value="sY4yIZVYrMDoD57HFUIPxixDOeqUN586A8rQ8zBo">
+
           <fieldset class="module">
             <legend></legend>
             <table class="table table-hover">
@@ -91,10 +91,12 @@
                 <th class="sortable" width="30%">Detalhes da Atividade</th>
               </tr>
               </thead>
+              <!--<input type="hidden" name = " evento " value = "{{dtevents.evento.id}}" ngModel>-->
+              <!--<input type="hidden" name = " user " value = "{{authService.getUser().id}}" ngModel>-->
               <tbody *ngFor="let ativ of dtevents.atividade ">
               <tr id="atividade_set-{{ativ.id}}" class="row1">
                 <td align="center" style="vertical-align:middle">
-                  <input type="checkbox" name="atividade[]" value="{{ativ.id}}" style="float:none">
+                  <input type="checkbox" name="{{ativ.id}}" value="{{ativ.id}}" style="float:none" ngModel>
                 </td>
                 <td style="vertical-align:middle; text-align: left;">
                   {{ativ.nome}}

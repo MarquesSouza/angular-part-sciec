@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import {Http, Response, Headers} from '@angular/http';
 import objectContaining = jasmine.objectContaining;
 import {environment} from '../../../environments/environment';
+import {count} from 'rxjs/operator/count';
+import {AuthService} from '../../shared/service/auth.service';
 
 @Component({
   selector: 'app-detalhes-evento',
@@ -11,7 +13,7 @@ import {environment} from '../../../environments/environment';
 export class DetalhesEventoComponent implements OnInit {
   //  private dataList: Data[] = [];
 
-    constructor(private http: Http,) { }
+    constructor(private http: Http, private authService: AuthService) { }
     dteventObj: object = {};
     dtevents : object = {
         atividade: Object(),
@@ -25,7 +27,7 @@ export class DetalhesEventoComponent implements OnInit {
         this.http.get(`${environment.web_url}/user/event/activity/index?event_id=`+event).subscribe(
             (res: Response) => {
                 this.dtevents = res.json();
-                 console.log( this.dtevents);
+          //       console.log( this.dtevents);
                this.dtevents;
             }
 
@@ -33,21 +35,17 @@ export class DetalhesEventoComponent implements OnInit {
 
     };
 
-    addNewDtEvent = function(dtevent) {
+    addNewDtEvent = function(productData) {
         this.dteventObj = {
-            'nome': dtevent.nome,
-            'descricao': dtevent.descricao,
-            'local': dtevent.local,
-            'data_inicio': dtevent.data_inicio,
-            'data_conclusao': dtevent.data_conclusao,
-            'situacao': dtevent.situacao,
-            'status': dtevent.status,
-            'coordenador': dtevent.coordenador,
-        };
-        this.http.post('http://sciec.test/admin/event/store', this.dteventObj).subscribe((res: Response) => {
-            console.log(res);
-            this.fetchData();
-        });
+            'atividade': productData,
+            'evento': this.dtevents.evento.id,
+            'user': this.authService.getUser().id,
+            };
+        console.log(this.dteventObj);
+        // this.http.post('http://sciec.test/admin/event/store', this.dteventObj).subscribe((res: Response) => {
+        //     console.log(res);
+        //     this.fetchData();
+        // });
     };
 
     ngOnInit() {
