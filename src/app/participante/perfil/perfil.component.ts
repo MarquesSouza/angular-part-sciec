@@ -17,7 +17,7 @@ export class PerfilComponent implements OnInit {
     ngOnInit() {
         this.http.get<any>(`${environment.api_url}/auth/me`).subscribe(data => {
             this.user = data.user;
-            console.log(this.user);
+            console.log(data.user);
         });
     }
 
