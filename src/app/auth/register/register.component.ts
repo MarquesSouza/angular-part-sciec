@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {Http} from '@angular/http';
 import {environment} from '../../../environments/environment';
+import {HttpClient} from '@angular/common/http';
+import {Router} from '@angular/router';
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
@@ -8,7 +10,7 @@ import {environment} from '../../../environments/environment';
 })
 export class RegisterComponent implements OnInit {
     userObj: object = {};
-  constructor( private http: Http) { }
+  constructor( private http: Http , private router: Router) { }
   addUser= function(event){
     this.userObj = {
         'name': event.name,
@@ -19,8 +21,8 @@ export class RegisterComponent implements OnInit {
         'tipousuario': '1',
     };
     this.http.post(`${environment.web_url}/user/auth/register`, this.userObj).subscribe((res: Response) => {
-      console.log(res);
-      this.route.navigate('login');
+      //console.log(res);
+        this.router.navigate(['login']);
     });
   }
   ngOnInit(){

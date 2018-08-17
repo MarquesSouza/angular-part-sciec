@@ -11,21 +11,21 @@
             <tbody>
             <tr>
               <td>Nome:</td>
-              <td><input type="text" name="nome" id="nome" required minlength="5" class="form-control" value="{{authService.getUser.name}}" /> </td>
+              <td><input type="text" name="nome" id="nome" required minlength="5" class="form-control" value="{{authService.getUser().name}}" /> </td>
 
             </tr>
             <tr>
               <td>E-mail:</td>
-              <td><input type="text" name="email" id="email" required minlength="5" class="form-control"/></td>
+              <td><input type="text" name="email" id="email" required minlength="5" class="form-control"  value="{{authService.getUser().email}}"/></td>
             </tr>
             <tr>
               <td>Telefone:</td>
-              <td><input type="text" name="telefone" id="telefone" required minlength="5" class="form-control"/></td>
+              <td><input type="text" name="telefone" id="telefone" required minlength="5" class="form-control"  value="{{authService.getUser().telefone}}"/></td>
             </tr>
             <tr>
             <tr>
               <td>CPF:</td>
-              <td><input type="text" readonly="true" name="cpf" id="cpf" required minlength="5" class="form-control"/></td>
+              <td><input type="text" readonly="true" name="cpf" id="cpf" required minlength="5" class="form-control"  value="{{authService.getUser().cpf}}"/></td>
             </tr>
             <tr>
             </tr>
