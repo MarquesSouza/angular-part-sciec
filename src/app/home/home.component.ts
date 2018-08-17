@@ -28,9 +28,8 @@ export class HomeComponent implements OnInit {
     };
 
     public redirecionar(values) {
-        var url = '/detalhes-evento/';
-        //console.log(values)
-        window.location.href = url;
+        localStorage.setItem('event', values);
+        window.location.href = '/detalhes-evento/';
     }
 
     ngOnInit() {
