@@ -1,34 +1,131 @@
+<!--<div class="container-fluid">-->
+  <!--<div class="content">-->
+    <!--<div class="table-full-width">-->
+      <!--<table class="table">-->
+        <!--<thead>-->
+        <!--<tr>-->
+          <!--<th scope="col">nome</th>-->
+          <!--<th scope="col">descricao</th>-->
+          <!--<th scope="col">local</th>-->
+          <!--<th scope="col">data inicio</th>-->
+          <!--<th scope="col">data conclusao</th>-->
+          <!--<th scope="col">situacao</th>-->
+          <!--<th scope="col">status</th>-->
+          <!--<th scope="col">coordenador</th>-->
+        <!--</tr>-->
+        <!--</thead>-->
+        <!--<tbody>-->
+
+          <!--<td>{{dtevents.evento.nome}}</td>-->
+          <!--<td>{{dtevents.evento.descricao}}</td>-->
+          <!--<td>{{dtevents.evento.local}}</td>-->
+          <!--<td>{{dtevents.evento.data_inicio}}</td>-->
+          <!--<td>{{dtevents.evento.data_conclusao}}</td>-->
+          <!--<td>{{dtevents.evento.situacao}}</td>-->
+          <!--<td>{{dtevents.evento.status}}</td>-->
+          <!--<td>{{dtevents.evento.coordenador}}</td>-->
+
+          <!--&lt;!&ndash;<tr *ngFor="let dtevent of dtevents.evento">&ndash;&gt;-->
+          <!--&lt;!&ndash;</tr>&ndash;&gt;-->
+        <!--</tbody>-->
+      <!--</table>-->
+    <!--</div>-->
+    <!--</div>-->
+  <!--</div>-->
+
+
 <div class="container-fluid">
   <div class="content">
-    <div class="table-full-width">
-      <table class="table">
-        <thead>
-        <tr>
-          <th scope="col">nome</th>
-          <th scope="col">descricao</th>
-          <th scope="col">local</th>
-          <th scope="col">data inicio</th>
-          <th scope="col">data conclusao</th>
-          <th scope="col">situacao</th>
-          <th scope="col">status</th>
-          <th scope="col">coordenador</th>
-        </tr>
-        </thead>
-        <tbody>
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item active" aria-current="page">
+          <h3 class="text-xl-center">{{dtevents.evento.nome}}</h3>
+        </li>
+      </ol>
+    </nav>
+    <div style="text-align: center">
 
-          <td>{{dtevents.evento.nome}}</td>
-          <td>{{dtevents.evento.descricao}}</td>
-          <td>{{dtevents.evento.local}}</td>
-          <td>{{dtevents.evento.data_inicio}}</td>
-          <td>{{dtevents.evento.data_conclusao}}</td>
-          <td>{{dtevents.evento.situacao}}</td>
-          <td>{{dtevents.evento.status}}</td>
-          <td>{{dtevents.evento.coordenador}}</td>
+      <div style="width: 100%; height: 200px;">
+        <div>
+          <img src="assets/Imagens/ifpe.png" height="90" alt="logo-evento">
+        </div>
+        <div>
+          De {{dtevents.evento.data_inicio | date: 'dd/MM/yyyy'}} à {{dtevents.evento.data_conclusao | date: 'dd/MM/yyyy'}}
+        </div>
+        <div>
+          Local: {{dtevents.evento.local}}
+        </div>
+        <div>
+          {{dtevents.evento.descricao}}
+        </div>
+      </div>
+      <div >
+        <form action="http://localhost/sciec-fake/public/user/event/1/activity/insc" method="post">
+          <input type="hidden" name="_token" value="sY4yIZVYrMDoD57HFUIPxixDOeqUN586A8rQ8zBo">
+          <fieldset class="module">
+            <legend></legend>
+            <table class="table table-hover">
+              <thead>
+              <tr style="font-weight:bold">
+                <th width="5%">
 
-          <!--<tr *ngFor="let dtevent of dtevents.evento">-->
-          <!--</tr>-->
-        </tbody>
-      </table>
+                </th>
+                <th class="sortable" width="40%">Programação</th>
+                <th class="sortable" width="13%">Vagas Disponíveis</th>
+                <th class="sortable" width="25%">Data</th>
+                <th class="sortable" width="30%">Detalhes da Atividade</th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr id="atividade_set-2" class="row1">
+                <td align="center" style="vertical-align:middle">
+                  <input type="checkbox" name="atividade[]" value="1" style="float:none">
+                </td>
+                <td style="vertical-align:middle; text-align: left;">
+                  Minicurso Robótica - Robô Lego
+                </td>
+                <td style="vertical-align:middle;text-align: left;">
+                  <p align="center">0/0</p>
+                </td>
+                <td style="vertical-align:middle">
+                  15/03/2011 a 08/06/2018
+                </td>
+                <td>
+                  <button type="button" class="btn btn-success" data-toggle="modal" data-target="#myModal1">Detalhes</button>
+
+                  <div class="modal fade" id="myModal1" role="dialog">
+                    <div class="modal-dialog">
+
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <button type="button" class="close" data-dismiss="modal">&times;</button>
+                          <h4 class="modal-title">Minicurso Robótica - Robô Lego</h4>
+                        </div>
+                        <div class="modal-body">
+                          <p>Local: IFTO - Campus Paraíso do Tocantins - TO</p>
+                          <p>Horário: 04:00:00</p>
+                          <p>Descrição:</p>
+                          <p>Introdução a robótica utilizando robô de lego</p>
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+                        </div>
+                      </div>
+                      <br>
+                    </div>
+                  </div>
+                </td>
+              </tr>
+              </tbody>
+
+            </table>
+          </fieldset>
+          <hr>
+          <div style="text-align: center" class="submit-row">
+            <input type="submit" class="btn btn-success" value="Inscrever">
+          </div>
+        </form>
+      </div>
+
     </div>
-    </div>
-  </div>
+  </div></div>
