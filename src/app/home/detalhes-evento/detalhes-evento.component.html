@@ -60,7 +60,7 @@
         </div>
       </div>
       <div >
-        <form action="http://localhost/sciec-fake/public/user/event/1/activity/insc" method="post">
+        <form id = "formNewUser" name = "formNewUser" #productData = "ngForm" (ngSubmit) = "addNewDtEvent(productData.value)">
           <input type="hidden" name="_token" value="sY4yIZVYrMDoD57HFUIPxixDOeqUN586A8rQ8zBo">
           <fieldset class="module">
             <legend></legend>
@@ -69,6 +69,21 @@
               <tr style="font-weight:bold">
                 <th width="5%">
 
+                    <!--descricao-->
+                    <!--:-->
+                    <!--"Introdução a robótica utilizando robô de lego"-->
+                    <!--events_id-->
+                    <!--:-->
+                    <!--1-->
+                    <!--horas-->
+                    <!--:-->
+                    <!--"04:00:00"-->
+                    <!--id-->
+                    <!--:-->
+                    <!--1-->
+                    <!--local-->
+                    <!--:-->
+                    <!--"IFTO - Campus Paraíso do Tocantins - TO"-->
                 </th>
                 <th class="sortable" width="40%">Programação</th>
                 <th class="sortable" width="13%">Vagas Disponíveis</th>
@@ -76,24 +91,24 @@
                 <th class="sortable" width="30%">Detalhes da Atividade</th>
               </tr>
               </thead>
-              <tbody>
-              <tr id="atividade_set-2" class="row1">
+              <tbody *ngFor="let ativ of dtevents.atividade ">
+              <tr id="atividade_set-{{ativ.id}}" class="row1">
                 <td align="center" style="vertical-align:middle">
-                  <input type="checkbox" name="atividade[]" value="1" style="float:none">
+                  <input type="checkbox" name="atividade[]" value="{{ativ.id}}" style="float:none">
                 </td>
                 <td style="vertical-align:middle; text-align: left;">
-                  Minicurso Robótica - Robô Lego
+                  {{ativ.nome}}
                 </td>
                 <td style="vertical-align:middle;text-align: left;">
-                  <p align="center">0/0</p>
+                  <p align="center">{{dtevents.qtd[ativ.id]}}/{{ativ.qtd_inscritos}}</p>
                 </td>
                 <td style="vertical-align:middle">
-                  15/03/2011 a 08/06/2018
+                  {{ativ.data_inicio | date: 'dd/MM/yyyy'}} à {{ativ.data_conclusao | date: 'dd/MM/yyyy'}}
                 </td>
                 <td>
-                  <button type="button" class="btn btn-success" data-toggle="modal" data-target="#myModal1">Detalhes</button>
+                  <button type="button" class="btn btn-success" data-toggle="modal" data-target="#myModal">Detalhes</button>
 
-                  <div class="modal fade" id="myModal1" role="dialog">
+                  <div class="modal fade" id="myModal{{ativ.id}}" role="dialog">
                     <div class="modal-dialog">
 
                       <div class="modal-content">
@@ -105,7 +120,7 @@
                           <p>Local: IFTO - Campus Paraíso do Tocantins - TO</p>
                           <p>Horário: 04:00:00</p>
                           <p>Descrição:</p>
-                          <p>Introdução a robótica utilizando robô de lego</p>
+                          <p>{{ativ.descricao}}</p>
                         </div>
                         <div class="modal-footer">
                           <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
@@ -129,6 +144,6 @@
 
     </div>
   </div></div>
-<div *ngFor="let ativ of dtevents.atividade "  >
-  <p>{{ativ.nome}}/{{dtevents.qtd[ativ.id]}}</p>
-</div>
+<!--<div *ngFor="let ativ of dtevents.atividade "  >-->
+  <!--<p>{{ativ.nome}}/{{dtevents.qtd[ativ.id]}}</p>-->
+<!--</div>-->
