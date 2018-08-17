@@ -15,17 +15,17 @@ export class DetalhesEventoComponent implements OnInit {
     dteventObj: object = {};
     dtevents : object = {
         atividade: Object(),
-        qtd: Object(),
+        qtd: Object() ,
         evento: Object (),
     };
 
     fetchData = function() {
         var event = localStorage.getItem('event');
-        localStorage.removeItem('event');
+       // localStorage.removeItem('event');
         this.http.get(`${environment.web_url}/user/event/activity/index?event_id=`+event).subscribe(
             (res: Response) => {
                 this.dtevents = res.json();
-               //   console.log( res.json());
+                // console.log( this.dtevents.qtd);
                this.dtevents;
             }
 
