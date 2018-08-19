@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-light" style="background-color: #006400;">
+<nav class="navbar navbar-expand-lg navbar-light" style="background-color: #003300">
 
     <div class="container-fluid">
         <div class="navbar-header">
@@ -8,7 +8,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" routerLink="/" >SCIEC </a>
+            <a class="navbar-brand"  style="color: #ffffff; border-color: #ffffff" routerLink="/" >SCIEC </a>
         </div>
         <div class="collapse navbar-collapse">
 
@@ -20,16 +20,16 @@
                     <!--<a href="valida">-->
                         <!--<p>Validar Certificado   </p>-->
                     <!--</a>-->
-                    <button class="btn btn-primary" routerLink="valida">Validar Certificado</button>
+                    <button class="btn btn-light" style="color: #ffffff; border-color: #ffffff" routerLink="valida">Validar Certificado</button>
                 </li>
                 <li >
-                    <button class="btn btn-primary" routerLink="home">Eventos</button>
+                    <button class="btn btn-light" style="color: #ffffff; border-color: #ffffff" routerLink="home">Eventos</button>
                 </li>
                 <li class="dropdown" *ngIf="authService.check()">
 
                     <div class="dropdown">
 
-                        <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">{{authService.getUser().name}}
+                        <button style="color: #ffffff; border-color: #ffffff" class="btn btn-light dropdown-toggle" type="button" data-toggle="dropdown">{{authService.getUser().name}}
                             <span class="caret"></span></button>
 
                         <ul class="dropdown-menu">
@@ -42,7 +42,7 @@
                 </li>
                 <li *ngIf="!authService.check()" >
                     <!--*ngIf="!logado" -->
-                    <button class="btn btn-primary" routerLink="/login">Entrar<span class="sr-only">(current)</span></button>
+                    <button style="color: #ffffff; border-color: #ffffff" class="btn btn-light" routerLink="/login">Entrar<span class="sr-only">(current)</span></button>
                 </li>
                 <li class="separator hidden-lg hidden-md"></li>
             </ul>
