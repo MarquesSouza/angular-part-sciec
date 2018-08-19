@@ -24,7 +24,7 @@ export class DetalhesEventoComponent implements OnInit {
     fetchData = function() {
         var event = localStorage.getItem('event');
        // localStorage.removeItem('event');
-        this.http.get(`${environment.web_url}/user/event/activity/index?event_id=`+event).subscribe(
+        this.http.get(`${environment.web_url}/user/event/activity/index?event_id=` + event).subscribe(
             (res: Response) => {
                 this.dtevents = res.json();
           //       console.log( this.dtevents);
@@ -41,11 +41,11 @@ export class DetalhesEventoComponent implements OnInit {
             'evento': this.dtevents.evento.id,
             'user': this.authService.getUser().id,
             };
-        console.log(this.dteventObj);
-        // this.http.post('http://sciec.test/admin/event/store', this.dteventObj).subscribe((res: Response) => {
-        //     console.log(res);
-        //     this.fetchData();
-        // });
+       console.log(this.dteventObj);
+        this.http.post(`${environment.web_url}/user/event/activity/insc`, this.dteventObj).subscribe((res: Response) => {
+           console.log(res);
+            //this.fetchData();
+         });
     };
 
     ngOnInit() {
