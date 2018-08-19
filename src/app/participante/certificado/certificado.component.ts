@@ -75,14 +75,14 @@ export class CertificadoComponent implements OnInit {
         doc.setFillColor(56, 0,26,0);
         doc.rect(0, 0, 210, 150, "F");
      //   doc.addImage('assets/Imagens/ifpe.png', 'PNG', 50, 2);
-        doc.addImage('assets/Imagens/ifpe.png', 95, 10, 20, 20);
+        doc.addImage('assets/Imagens/certificado.png', 0, 0, 210, 150);
         var lMargin=15; //left margin in mm
         var rMargin=15; //right margin in mm
         var pdfInMM=210;  // width of A4 in mm
         var pageCenter=pdfInMM/2;
 
         var lines =doc.splitTextToSize(reportTitle, (pdfInMM-lMargin-rMargin));
-        doc.text(lines,pageCenter,50,'center');
+        doc.text(lines,pageCenter,80,'center');
 
         doc.save('Test.pdf');
     }
