@@ -84,7 +84,7 @@ export class CertificadoComponent implements OnInit {
         var lines =doc.splitTextToSize(reportTitle, (pdfInMM-lMargin-rMargin));
         doc.text(lines,pageCenter,80,'center');
 
-        doc.save('Test.pdf');
+        doc.save('Certificado-IFTO.pdf');
     }
 
 }
