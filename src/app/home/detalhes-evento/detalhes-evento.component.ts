@@ -4,7 +4,7 @@ import objectContaining = jasmine.objectContaining;
 import {environment} from '../../../environments/environment';
 import {count} from 'rxjs/operator/count';
 import {AuthService} from '../../shared/service/auth.service';
-
+import { Router, RouterModule } from '@angular/router';
 @Component({
   selector: 'app-detalhes-evento',
   templateUrl: './detalhes-evento.component.html',
@@ -13,7 +13,7 @@ import {AuthService} from '../../shared/service/auth.service';
 export class DetalhesEventoComponent implements OnInit {
   //  private dataList: Data[] = [];
 
-    constructor(private http: Http, private authService: AuthService) { }
+    constructor(public router: Router,private http: Http, private authService: AuthService) { }
     dteventObj: object = {};
     dtevents : object = {
         atividade: Object(),
@@ -36,6 +36,9 @@ export class DetalhesEventoComponent implements OnInit {
     };
 
     addNewDtEvent = function(productData) {
+        if ( this.authService.getUser() == null ) {
+            this.router.navigate(['login']);
+        }
         this.dteventObj = {
             'atividade': productData,
             'evento': this.dtevents.evento.id,
@@ -47,9 +50,7 @@ export class DetalhesEventoComponent implements OnInit {
             //this.fetchData();
          });
     };
-
     ngOnInit() {
         this.fetchData();
     }
-
 }
