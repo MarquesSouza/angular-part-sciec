@@ -1,34 +1,35 @@
 
 <table class="table">
 
-
+    <!--{{certificados.evento }}-->
   <thead>
   <tr>
 
-    <th scope="col">Nome</th>
-    <th scope="col">CPF</th>
-    <th scope="col">Evento</th>
-    <th scope="col">Data inicio </th>
-    <th scope="col">Conclusao</th>
-    <th scope="col">Tipo Atividade </th>
-    <th scope="col">Atividade</th>
+    <!--<th scope="col">Nome</th>-->
+    <!--<th scope="col">CPF</th>-->
+    <!--<th scope="col">Evento</th>-->
+    <th scope="col">Nome da Atividade</th>
+    <th scope="col">Data</th>
+    <!--<th scope="col">Conclusao</th>-->
+    <th scope="col">Tipo de Participação </th>
     <th scope="col">Horas</th>
-    <th scope="col">Tipo</th>
+    <th scope="col">Certificado</th>
 
 
   </tr>
   </thead>
   <tbody>
   <tr *ngFor="let certificados of certificado[0]">
-    <td>{{certificados.nome }}</td>
-    <td>{{certificados.cpf }}</td>
-    <td>{{certificados.evento }}</td>
-    <td>{{certificados.data_inicio }}</td>
-    <td>{{certificados.conclusao}}</td>
-    <td>{{certificados.tipo_nome}}</td>
+    <!--<td>{{certificados.nome }}</td>-->
+    <!--<td>{{certificados.cpf }}</td>-->
+    <!--<td>{{certificados.evento }}</td>-->
     <td>{{certificados.atividade}}</td>
-    <td>{{certificados.horas}}</td>
-    <td>{{certificados.tipo}}</td>
+    <td>{{certificados.data_inicio | date: 'dd/MM/yyyy' }} à {{certificados.data_conclusao | date: 'dd/MM/yyyy'}}</td>
+    <!--<td>{{certificados.data_conclusao}}</td>-->
+    <td>{{certificados.tipo_nome}}</td>
+    <td>{{certificados.horas.substr(1,4)}}</td>
+    <button  class="btn btn-primary" (click)="gerar(certificados.nome, certificados.cpf, certificados.atividade, certificados.evento, certificados.data_inicio, certificados.data_conclusao, certificados.tipo_nome, certificados.horas.substr(1,4)  )">certificado</button>
+    <!--<td>{{certificados.tipo}}</td>-->
 
   </tr>
   </tbody>
