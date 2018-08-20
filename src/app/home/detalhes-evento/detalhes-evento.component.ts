@@ -44,7 +44,7 @@ export class DetalhesEventoComponent implements OnInit {
             'evento': this.dtevents.evento.id,
             'user': this.authService.getUser().id,
             };
-       console.log(this.dteventObj);
+      // console.log(this.dteventObj);
         this.http.post(`${environment.web_url}/user/event/activity/insc`, this.dteventObj).subscribe((res: Response) => {
            console.log(res);
             //this.fetchData();
