@@ -36,6 +36,12 @@
 
 <div class="container-fluid">
   <div class="content">
+    <div class="alert alert-danger" role="alert" *ngIf="messagem">
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+      {{res}}
+    </div>
     <nav aria-label="breadcrumb">
       <ol class="breadcrumb">
         <li class="breadcrumb-item active" aria-current="page">

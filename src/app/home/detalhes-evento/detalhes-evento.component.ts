@@ -13,16 +13,18 @@ import { Router, RouterModule } from '@angular/router';
 export class DetalhesEventoComponent implements OnInit {
   //  private dataList: Data[] = [];
 
-    constructor(public router: Router,private http: Http, private authService: AuthService) { }
+    constructor(public router: Router, private http: Http, private authService: AuthService) { }
     dteventObj: object = {};
-    dtevents : object = {
+    messagem: false;
+    res: object = {};
+    dtevents: object = {
         atividade: Object(),
         qtd: Object() ,
         evento: Object (),
     };
 
     fetchData = function() {
-        var event = localStorage.getItem('event');
+        const event = localStorage.getItem('event');
        // localStorage.removeItem('event');
         this.http.get(`${environment.web_url}/user/event/activity/index?event_id=` + event).subscribe(
             (res: Response) => {
@@ -46,8 +48,16 @@ export class DetalhesEventoComponent implements OnInit {
             };
       // console.log(this.dteventObj);
         this.http.post(`${environment.web_url}/user/event/activity/insc`, this.dteventObj).subscribe((res: Response) => {
-           console.log(res);
-            //this.fetchData();
+           if (( res.json() == '1' ) || ( res.json() == '2' )){
+               this.router.navigate(['inscricoes']);
+           }else{
+
+               this.messagem = true;
+               this.res = res.json();
+           }
+
+
+
          });
     };
     ngOnInit() {
