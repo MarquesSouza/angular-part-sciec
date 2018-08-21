@@ -36,12 +36,6 @@
 
 <div class="container-fluid">
   <div class="content">
-    <div class="alert alert-danger" role="alert" *ngIf="messagem">
-      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-        <span aria-hidden="true">&times;</span>
-      </button>
-      {{res}}
-    </div>
     <nav aria-label="breadcrumb">
       <ol class="breadcrumb">
         <li class="breadcrumb-item active" aria-current="page">
@@ -114,7 +108,7 @@
                   {{ativ.data_inicio | date: 'dd/MM/yyyy'}} à {{ativ.data_conclusao | date: 'dd/MM/yyyy'}}
                 </td>
                 <td>
-                  <button type="button" class="btn btn-primary" style="border-color: #006400; background-color: #006400; color: #ffffff" data-toggle="modal" data-target="#myModal">Detalhes</button>
+                  <button type="button" class="btn btn-primary" style="border-color: #006400; background-color: #006400; color: #ffffff" data-toggle="modal" attr.data-target="#myModal{{ativ.id}}">Detalhes</button>
 
                   <div class="modal fade" id="myModal{{ativ.id}}" role="dialog">
                     <div class="modal-dialog">
@@ -122,11 +116,11 @@
                       <div class="modal-content">
                         <div class="modal-header">
                           <button type="button" class="close" data-dismiss="modal">&times;</button>
-                          <h4 class="modal-title">Minicurso Robótica - Robô Lego</h4>
+                          <h4 class="modal-title">{{ativ.nome}}</h4>
                         </div>
                         <div class="modal-body">
-                          <p>Local: IFTO - Campus Paraíso do Tocantins - TO</p>
-                          <p>Horário: 04:00:00</p>
+                          <p>Local: {{ativ.local}}</p>
+                          <p>Horário: {{ativ.horas}}</p>
                           <p>Descrição:</p>
                           <p>{{ativ.descricao}}</p>
                         </div>
