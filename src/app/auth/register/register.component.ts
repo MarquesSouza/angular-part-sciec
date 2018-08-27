@@ -10,6 +10,7 @@ import {Router} from '@angular/router';
 })
 export class RegisterComponent implements OnInit {
     userObj: object = {};
+    messageError;
   constructor( private http: Http , private router: Router) { }
   addUser= function(event){
     this.userObj = {
@@ -21,8 +22,11 @@ export class RegisterComponent implements OnInit {
         'tipousuario': '1',
     };
     this.http.post(`${environment.web_url}/user/auth/register`, this.userObj).subscribe((res: Response) => {
-      //console.log(res);
-        this.router.navigate(['login']);
+        this.messageError = res.json();
+        console.log(this.messageError);
+        if ( this.messageError.message === "User created." ) {
+            this.router.navigate(['login']);
+        }
     });
   }
   ngOnInit(){

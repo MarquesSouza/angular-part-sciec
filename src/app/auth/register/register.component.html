@@ -5,26 +5,61 @@
         <form id = "formNewUser" name = "formNewUser" #productData = "ngForm" (ngSubmit) = "addUser(productData.value)">
           <h1 class="h3 mb-3 font-weight-normal" >Cadastre-se para se inscrever nos eventos</h1>
           <div class="form-row">
-            <div class="form-group col-md-12">
+            <div class="form-group col-md-12" [ngClass]="{'has-error': !name.valid && (name.dirty || name.touched)}">
               <label for="name">Nome Completo</label>
-              <input type="text" class="form-control" id="name" name="name" ngModel
-                     placeholder="Esses dados vão ser impressos em seu certificado!">
+              <span class="help-block" *ngIf="name.errors && (name.dirty || name.touched)">
+                                                                    <ul>
+                                                                        <li *ngIf="name.errors.required">
+                                                                          {{messageError.message.name[0]}}
+                                                                        </li>
+                                                                    </ul>
+              </span>
+              <input type="text" class="form-control" id="name" name="name" #name="ngModel"  placeholder="Esses dados vão ser impressos em seu certificado!" required ngModel >
+
             </div>
-            <div class="form-group col-md-12">
+            <div class="form-group col-md-12" [ngClass]="{'has-error': !cpf.valid && (cpf.dirty || cpf.touched)}">
               <label for="cpf">CPF</label>
-              <input type="text" class="form-control" id="cpf" name="cpf" placeholder="123.456.789-12" ngModel>
+              <span class="help-block" *ngIf="cpf.errors && (cpf.dirty || cpf.touched)">
+                                                                    <ul>
+                                                                        <li *ngIf="cpf.errors.required">
+                                                                          {{messageError.message.cpf[0]}}
+                                                                        </li>
+                                                                    </ul>
+              </span>
+              <input type="text" class="form-control" id="cpf" name="cpf" placeholder="123.456.789-12" #cpf="ngModel" required ngModel>
             </div>
-            <div class="form-group col-md-12">
+            <div class="form-group col-md-12" [ngClass]="{'has-error': !email.valid && (email.dirty || email.touched)}" >
               <label for="email">Email</label>
-              <input type="email" class="form-control" id="email" name="email" placeholder="seuemail@gmail.com" ngModel>
+              <span class="help-block" *ngIf="email.errors && (email.dirty || email.touched)">
+                                                                    <ul>
+                                                                        <li *ngIf="email.errors.required">
+                                                                          {{messageError.message.email[0]}}
+                                                                        </li>
+                                                                    </ul>
+              </span>
+              <input type="email" class="form-control" id="email" name="email" placeholder="seuemail@gmail.com" #email="ngModel" required ngModel>
             </div>
-            <div class="form-group col-md-12">
+            <div class="form-group col-md-12" [ngClass]="{'has-error': !celular.valid && (celular.dirty || celular.touched)}">
               <label for="celular">Celular</label>
-              <input type="text" class="form-control" id="celular" name="celular" placeholder="(63)99999-9999" ngModel>
+              <span class="help-block" *ngIf="celular.errors && (celular.dirty || celular.touched)">
+                                                                    <ul>
+                                                                        <li *ngIf="celular.errors.required">
+                                                                          {{messageError.message.celular[0]}}
+                                                                        </li>
+                                                                    </ul>
+              </span>
+              <input type="text" class="form-control" id="celular" name="celular" placeholder="(63)99999-9999" #celular="ngModel" required ngModel>
             </div>
-            <div class="form-group col-md-6">
+            <div class="form-group col-md-6" [ngClass]="{'has-error': !password.valid && (password.dirty || password.touched)}">
               <label for="password">Senha</label>
-              <input type="password" class="form-control" id="password" name="password" placeholder="Insira sua senha" ngModel>
+              <span class="help-block" *ngIf="password.errors && (password.dirty || password.touched)">
+                                                                    <ul>
+                                                                        <li *ngIf="password.errors.required">
+                                                                          {{messageError.message.password[0]}}
+                                                                        </li>
+                                                                    </ul>
+              </span>
+              <input type="password" class="form-control" id="password" name="password" placeholder="Insira sua senha" #password="ngModel" required ngModel>
             </div>
             <div class="form-group col-md-6">
               <label for="password">Confirmação de Senha</label>
